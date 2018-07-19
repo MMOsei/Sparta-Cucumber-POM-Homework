@@ -15,7 +15,3 @@ class TempEmail
   end
 
 end
-
-# email = BBC_Site.new
-# email.visit_minute_inbox
-# email.get_email

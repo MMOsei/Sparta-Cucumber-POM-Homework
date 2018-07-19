@@ -14,7 +14,7 @@ Given("I input a date less that thirteen years in the past") do
 end
 
 When("I try to click continue") do
-@bbc_site.bbc_registration.click_dob_button
+  @bbc_site.bbc_registration.click_dob_button
 end
 
 Then("I receive an error telling me I need to be thirteen or over") do
@@ -84,7 +84,7 @@ Given("I skip the email updates section") do
 
 Given("I input a invalid password") do
   @bbc_site.bbc_registration.fill_in_email(@email)
-  @bbc_site.bbc_registration.fill_num_only_password
+  @bbc_site.bbc_registration.fill_letters_only_password
   @bbc_site.bbc_registration.fill_in_postcode
   @bbc_site.bbc_registration.choose_gender
   @bbc_site.bbc_registration.click_email_updates

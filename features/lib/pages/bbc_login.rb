@@ -23,18 +23,8 @@ class BBC_Login
     sleep 1
   end
 
-  def fill_wrong_email
-    fill_in USERNAME, with: WRONG_DUMMY_EMAIL
-    sleep 1
-  end
-
   def fill_password
     fill_in PASSWORD_INPUT, with: DUMMY_PASSWORD
-    sleep 1
-  end
-
-  def fill_wrong_password
-    fill_in PASSWORD_INPUT, with: WRONG_DUMMY_PASSWORD
     sleep 1
   end
 
@@ -48,22 +38,45 @@ class BBC_Login
     sleep 1
   end
 
+  def click_email_box
+    find('user-identifier-input').click
+  end
+
+  def click_page
+    find('#signin-page').click
+  end
+
+  # Methods for failures
+  def fill_wrong_email
+    fill_in USERNAME, with: WRONG_DUMMY_EMAIL
+    sleep 1
+  end
+
+  def fill_wrong_password
+    fill_in PASSWORD_INPUT, with: WRONG_DUMMY_PASSWORD
+    sleep 1
+  end
+
+  # Errors section
+  # Error 1
   def error_text
     find(ERROR_MSG).text
     sleep 5
   end
 
+  # Error 2
   def wrong_email_error
     sleep 2
     page.has_content?("Sorry, that email doesn’t look right")
   end
 
+  # Error 3
   def wrong_password_error
     sleep 2
     page.has_content?("Sorry, that password is too short. It needs to be eight characters or more.")
-    # Sorry, that password isn't valid. Please include something that isn't a lette
   end
 
+  # Log out methods
   def click_account
     click_link 'Your account'
     sleep 1
@@ -71,14 +84,5 @@ class BBC_Login
 
   def click_sign_out_button
     click_link 'Sign out'
-    
-  end
-
-  def click_email_box
-    find('user-identifier-input').click
-  end
-
-  def click_page
-    find('#signin-page').click
   end
 end

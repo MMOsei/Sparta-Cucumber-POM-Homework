@@ -5,10 +5,10 @@ class BBC_Registration
 
   #Constants
 
-CONFIRM_BIRTHDAY_LINK = '#submit-button'
-DUMMY_PASSWORD = 'Sparta2018'
-INPUT_POSTCODE = 'TW10 6TF'
-REGISTRATION_SUBMIT = '#submit-button'
+  CONFIRM_BIRTHDAY_LINK = '#submit-button'
+  DUMMY_PASSWORD = 'Sparta2018'
+  INPUT_POSTCODE = 'TW10 6TF'
+  REGISTRATION_SUBMIT = '#submit-button'
 
   def click_13_or_over
     click_link('13 or over')
@@ -19,12 +19,6 @@ REGISTRATION_SUBMIT = '#submit-button'
     fill_in('day-input', with: '16')
     fill_in('month-input', with: '06')
     fill_in('year-input', with: '1986')
-  end
-
-  def input_dob_under_age
-    fill_in('day-input', with: '16')
-    fill_in('month-input', with: '06')
-    fill_in('year-input', with: '2016')
   end
 
   def click_dob_button
@@ -42,23 +36,8 @@ REGISTRATION_SUBMIT = '#submit-button'
     sleep 1
   end
 
-  def fill_short_password
-    fill_in('password-input', with: 'short')
-    sleep 1
-  end
-
-  def fill_num_only_password
-    fill_in('password-input', with: "lolololol")
-    sleep 1
-  end
-
   def fill_in_postcode
     fill_in('postcode-input', with: INPUT_POSTCODE)
-    sleep 1
-  end
-
-  def input_city_as_postcode
-    fill_in('postcode-input', with: 'london')
     sleep 1
   end
 
@@ -77,11 +56,31 @@ REGISTRATION_SUBMIT = '#submit-button'
     sleep 1
   end
 
-
   def verify_registration
     has_content?('You\'re now signed in')
   end
 
+  # Methods for failures
+  def input_dob_under_age
+    fill_in('day-input', with: '16')
+    fill_in('month-input', with: '06')
+    fill_in('year-input', with: '2016')
+  end
+
+  def fill_short_password
+    fill_in('password-input', with: 'short')
+    sleep 1
+  end
+
+  def fill_letters_only_password
+    fill_in('password-input', with: "lolololol")
+    sleep 1
+  end
+
+  def input_city_as_postcode
+    fill_in('postcode-input', with: 'london')
+    sleep 1
+  end
 
   # Errors section
   # Error 1

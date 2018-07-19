@@ -19,16 +19,16 @@ Feature: BBC Login
   #Test3
   Scenario: During the registration process an unregistered email and invalid password is used and gives an error
   Given I access the bbc registration page with a new dummy email
-  And I click the thirteen or over button with valid age
-  And I input a short and invalid password
+    And I click the thirteen or over button with valid age
+    And I input a short and invalid password
   When I try to click register
   Then I receive an error telling me the password is too short
 
   #Test4
   Scenario: During the registration process I input a city instead of a postcode and gives an error
   Given I access the bbc registration page with a new dummy email
-  And I click the thirteen or over button with valid age
-  And I input a city
+    And I click the thirteen or over button with valid age
+    And I input a city
   When I try to click register
   Then I receive an error telling me the postcode is invalid
 

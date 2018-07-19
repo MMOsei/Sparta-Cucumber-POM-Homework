@@ -24,7 +24,3 @@ class BBC_Site
   end
 
 end
-
-# bbc = BBC_Site.new
-# bbc_home = bbc.bbc_homepage
-# bbc_home.visit_home_page
